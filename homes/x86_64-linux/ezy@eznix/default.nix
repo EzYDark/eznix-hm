@@ -34,6 +34,8 @@ with lib.${namespace}; {
         nix = enabled;
         rust = enabled;
       };
+      ssh = enabled;
+      git = enabled;
       home-manager = enabled;
       discord = enabled;
       spotify = enabled;
