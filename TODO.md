@@ -1,4 +1,4 @@
-1. Git auth and keys
+1. Git/SSH auth and keys
 2. Sway shortcuts
 3. Waybar (or alternative)
 4. Transfer configs from sys to home-man
