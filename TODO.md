@@ -9,3 +9,6 @@
 - [] Add ssh keys and config into nix (encrypted using agenix or something)
 - [] Set up neovim
 - [] Touchpad gestures in sway
+
+- [] KVM / QEMU
+    - [] Spoofing for games
