@@ -8,10 +8,10 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.programs.waybar;
+  cfg = config.${namespace}.programs.ironbar;
 in {
-  options.${namespace}.programs.waybar = with types; {
-    enable = mkBoolOpt false "Whether or not to enable Waybar.";
+  options.${namespace}.programs.ironbar = with types; {
+    enable = mkBoolOpt false "Whether or not to enable Ironbar (Waybar replacement).";
   };
 
   config = mkIf cfg.enable {

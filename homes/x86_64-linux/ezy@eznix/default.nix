@@ -43,7 +43,7 @@ with lib.${namespace}; {
       kitty = enabled;
       mako = enabled;
       tldr = enabled;
-      waybar = enabled;
+      ironbar = enabled;
       poweralertd = enabled;
       btop = enabled;
     };
