@@ -36,7 +36,6 @@ with lib.${namespace}; {
       };
       ssh = enabled;
       git = enabled;
-      kdeconnect = enabled;
       home-manager = enabled;
       discord = enabled;
       spotify = enabled;
