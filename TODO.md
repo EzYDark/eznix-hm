@@ -2,13 +2,16 @@
 - [] Sway shortcuts
     - [] Volume controls
     - [] Brightness controls
-- [] Sway workspaces
+    - [] Touchpad gesture for media control
+    - [] Window switching
+    - [] Window moving between workspaces
+- [x] Sway workspaces
 - [x] Waybar (or alternative)
 - [] Transfer configs from sys to home-man
 - [] Add vscode config into nix
 - [] Add ssh keys and config into nix (encrypted using agenix or something)
 - [] Set up neovim
-- [] Touchpad gestures in sway
+- [x] Touchpad gestures in sway
 
 - [] KVM / QEMU
     - [] Spoofing for games
