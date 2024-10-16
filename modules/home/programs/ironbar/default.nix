@@ -27,14 +27,18 @@ in {
         start = [
             {
                 type = "workspaces";
-                name_map = {
-                    "1" = "";
-                    "2" = "";
-                    "3" = "";
-                };
-                icon_size = 16;
-                favorites = ["1" "2" "3"];
+                # name_map = {
+                #     "1" = "";
+                #     "2" = "";
+                #     "3" = "";
+                # };
+                icon_size = 32;
+                favorites = ["1" "2" "3" "4" "5"];
                 all_monitors = true;
+            }
+            {
+                type = "sway_mode";
+                truncate = "start";
             }
             {
                 type = "tray";

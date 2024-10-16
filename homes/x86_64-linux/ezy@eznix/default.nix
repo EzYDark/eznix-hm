@@ -77,6 +77,7 @@ with lib.${namespace}; {
     greetd.tuigreet
     bluez
     pavucontrol
+    ydotool
   ];
 
 

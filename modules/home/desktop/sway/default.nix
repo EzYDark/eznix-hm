@@ -58,7 +58,7 @@ in {
         };
 
         gaps = {
-          inner = 5;
+          inner = 3;
           outer = 6;
         };
 
@@ -101,50 +101,52 @@ in {
 
 
 
-        keybindings =
-          {
-            "${modifier}+F" = "exec ${lib.getExe pkgs.firefox-devedition}";
-            "${modifier}+C" = "kill";
-            "${modifier}+Comma" = "workspace prev";
-            "${modifier}+V" = "exec ${lib.getExe pkgs.vscode-fhs}";
-            "${modifier}+E" = "exec ${lib.getExe pkgs.xfce.thunar}";
-            "${modifier}+F11" = "exec pkill -SIGUSR1 waybar"; # Show/hide waybar
-            "${modifier}+Period" = "workspace next";
-            "${modifier}+R" = "exec ${lib.getExe pkgs.rofi-wayland} -show combi";
-            "${modifier}+Shift+Backslash" = "layout toggle split";
-            "${modifier}+Shift+Comma" = "move container to workspace prev; workspace prev";
-            "${modifier}+Shift+G" = "layout toggle splitv tabbed";
-            "${modifier}+Shift+Period" = "move container to workspace next; workspace next";
-            "${modifier}+Shift+R" = "exec ${lib.getExe pkgs.rofi-wayland} -show run";
-            "${modifier}+Shift+V" = "floating toggle";
-            "${modifier}+Shift+W" = "fullscreen toggle";
-            "${modifier}+T" = "exec ${lib.getExe pkgs.kitty}";
-            "${modifier}+Tab" = "exec ${lib.getExe pkgs.rofi-wayland} -show window";
-            "Ctrl+Mod1+M" = "mode move";
-            "Ctrl+Mod1+R" = "mode resize";
-          };
+        keybindings = {
+          "${modifier}+F" = "exec ${lib.getExe pkgs.firefox-devedition}";
+          "${modifier}+E" = "exec ${lib.getExe pkgs.xfce.thunar}";
+          "${modifier}+R" = "exec ${lib.getExe pkgs.rofi-wayland} -show drun -show-icons";
+          "${modifier}+T" = "exec ${lib.getExe pkgs.kitty}";
+          "${modifier}+C" = "kill";
+          "${modifier}+Shift+D" = "floating toggle";
+          "${modifier}+Shift+F" = "fullscreen toggle";
+          "${modifier}+Shift+A" = "mode Move";
+          "${modifier}+Shift+S" = "mode Resize";
+          "${modifier}+plus" = "workspace 1";
+          "${modifier}+ecaron" = "workspace 2";
+          "${modifier}+scaron" = "workspace 3";
+          "${modifier}+ccaron" = "workspace 4";
+          "${modifier}+rcaron" = "workspace 5";
+          "${modifier}+zcaron" = "workspace 6";
+          "${modifier}+yacute" = "workspace 7";
+          "${modifier}+aacute" = "workspace 8";
+          "${modifier}+iacute" = "workspace 9";
+          "${modifier}+eacute" = "workspace 0";
+        };
 
         modes = {
-          move =
-            {
-              Comma = "move container to workspace prev; workspace prev";
-              Escape = "mode default";
-              Period = "move container to workspace next; workspace next";
-              S = "move scratchpad";
-            };
-
-          resize = {
+          "Move" = {
             Escape = "mode default";
-            Left = "resize shrink width 10 px";
-            Down = "resize grow height 10 px";
-            Up = "resize shrink height 10 px";
-            Right = "resize grow width 10 px";
+            "${modifier}+Shift+A" = "mode default";
+            "${modifier}+Shift+S" = "mode Resize";
+            Period = "move container to workspace prev; workspace prev";
+            Comma = "move container to workspace next; workspace next";
+          };
+
+          "Resize" = {
+            Escape = "mode default";
+            "${modifier}+Shift+S" = "mode default";
+            "${modifier}+Shift+A" = "mode Move";
+            Right = "resize shrink width 24 px";
+            Up = "resize grow height 24 px";
+            Down = "resize shrink height 24 px";
+            Left = "resize grow width 24 px";
           };
         };
 
         startup = [
           {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
-          {command = lib.getExe pkgs.autotiling;}
+          {command = "${lib.getExe pkgs.autotiling}";}
+          {command = "${pkgs.ydotool}/bin/ydotoold";}
         ];
 
         window = {
@@ -210,7 +212,7 @@ in {
 
       extraConfig =
         ''
-          mode "move" {
+          mode "Move" {
             bindgesture pinch:inward+down move down
             bindgesture pinch:inward+left move left
             bindgesture pinch:inward+right move right
@@ -221,10 +223,8 @@ in {
             bindgesture swipe:up move container to workspace next; workspace next
           }
 
-          bindgesture swipe:down workspace prev
-          bindgesture swipe:left workspace next
-          bindgesture swipe:right workspace prev
-          bindgesture swipe:up workspace next
+          bindgesture swipe:left exec "ydotool click 0xC4"
+          bindgesture swipe:right exec "ydotool click 0xC3"
 
           default_border pixel 4
           default_floating_border pixel 4
