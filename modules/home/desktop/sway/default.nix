@@ -137,6 +137,17 @@ in {
           "${modifier}+aacute" = "workspace 8";
           "${modifier}+iacute" = "workspace 9";
           "${modifier}+eacute" = "workspace 0";
+
+          "${modifier}+shift+plus" = "move window to workspace 1; workspace 1";
+          "${modifier}+shift+ecaron" = "move window to workspace 2; workspace 2";
+          "${modifier}+shift+scaron" = "move window to workspace 3; workspace 3";
+          "${modifier}+shift+ccaron" = "move window to workspace 4; workspace 4";
+          "${modifier}+shift+rcaron" = "move window to workspace 5; workspace 5";
+          "${modifier}+shift+zcaron" = "move window to workspace 6; workspace 6";
+          "${modifier}+shift+yacute" = "move window to workspace 7; workspace 7";
+          "${modifier}+shift+aacute" = "move window to workspace 8; workspace 8";
+          "${modifier}+shift+iacute" = "move window to workspace 9; workspace 9";
+          "${modifier}+shift+eacute" = "move window to workspace 0; workspace 0";
         };
 
         modes = {
