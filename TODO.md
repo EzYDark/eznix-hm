@@ -1,8 +1,8 @@
 - [x] Git/SSH auth and keys
 - [] Sway shortcuts
-    - [] Volume controls
-    - [] Brightness controls
-    - [] Touchpad gesture for media control
+    - [x] Volume controls
+    - [x] Brightness controls
+    - [x] Touchpad gesture for media control
     - [] Window switching
     - [] Window moving between workspaces
 - [x] Sway workspaces
@@ -12,6 +12,7 @@
 - [] Add ssh keys and config into nix (encrypted using agenix or something)
 - [] Set up neovim
 - [x] Touchpad gestures in sway
+- [] Replace Ironbar with Eww widget
 
 - [] KVM / QEMU
     - [] Spoofing for games

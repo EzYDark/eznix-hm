@@ -99,6 +99,17 @@ in {
           };
         };
 
+        workspaceOutputAssign = [
+          {
+            workspace = "1";
+            output = "eDP-1";
+          }
+          {
+            workspace = "2";
+            output = "HDMI-A-1";
+          }
+        ];
+
 
 
         keybindings = {
@@ -111,6 +122,11 @@ in {
           "${modifier}+Shift+F" = "fullscreen toggle";
           "${modifier}+Shift+A" = "mode Move";
           "${modifier}+Shift+S" = "mode Resize";
+          "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.brightnessctl} s 5%+";
+          "XF86MonBrightnessDown" = "exec ${lib.getExe pkgs.brightnessctl} s 5%-";
+          "XF86AudioMute" = "exec ${lib.getExe pkgs.pamixer} --toggle-mute";
+          "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pamixer} -i 5";
+          "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pamixer} -d 5";
           "${modifier}+plus" = "workspace 1";
           "${modifier}+ecaron" = "workspace 2";
           "${modifier}+scaron" = "workspace 3";
@@ -223,8 +239,10 @@ in {
             bindgesture swipe:up move container to workspace next; workspace next
           }
 
-          bindgesture swipe:left exec "ydotool click 0xC4"
-          bindgesture swipe:right exec "ydotool click 0xC3"
+          bindgesture swipe:left exec "${lib.getExe pkgs.ydotool} click 0xC4"
+          bindgesture swipe:right exec "${lib.getExe pkgs.ydotool} click 0xC3"
+          bindgesture swipe:up exec "${lib.getExe pkgs.playerctl} previous"
+          bindgesture swipe:down exec "${lib.getExe pkgs.playerctl} next"
 
           default_border pixel 4
           default_floating_border pixel 4
