@@ -1,10 +1,10 @@
 - [x] Git/SSH auth and keys
-- [] Sway shortcuts
+- [x] Sway shortcuts
     - [x] Volume controls
     - [x] Brightness controls
     - [x] Touchpad gesture for media control
     - [x] Moving windows between workspaces
-    - [] Moving focus between windows
+    - [x] Moving focus between windows
 - [x] Sway workspaces
 - [x] Waybar (or alternative)
 - [] Transfer configs from sys to home-man
@@ -12,7 +12,6 @@
 - [] Add ssh keys and config into nix (encrypted using agenix or something)
 - [] Set up neovim
 - [x] Touchpad gestures in sway
-- [] Replace Ironbar with Eww widget
 
 - [] KVM / QEMU
     - [] Spoofing for games
