@@ -127,6 +127,13 @@ in {
           "XF86AudioMute" = "exec ${lib.getExe pkgs.pamixer} --toggle-mute";
           "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pamixer} -i 5";
           "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pamixer} -d 5";
+          "${modifier}+up" = "focus up";
+          "${modifier}+down" = "focus down";
+          "${modifier}+left" = "focus left";
+          "${modifier}+right" = "focus right";
+          "control+tab" = "workspace back_and_forth";
+          "${modifier}+tab" = "workspace back_and_forth";
+
           "${modifier}+plus" = "workspace 1";
           "${modifier}+ecaron" = "workspace 2";
           "${modifier}+scaron" = "workspace 3";
@@ -148,6 +155,7 @@ in {
           "${modifier}+shift+aacute" = "move window to workspace 8; workspace 8";
           "${modifier}+shift+iacute" = "move window to workspace 9; workspace 9";
           "${modifier}+shift+eacute" = "move window to workspace 0; workspace 0";
+
         };
 
         modes = {

@@ -3,8 +3,8 @@
     - [x] Volume controls
     - [x] Brightness controls
     - [x] Touchpad gesture for media control
-    - [] Window switching
-    - [] Window moving between workspaces
+    - [x] Moving windows between workspaces
+    - [] Moving focus between windows
 - [x] Sway workspaces
 - [x] Waybar (or alternative)
 - [] Transfer configs from sys to home-man
