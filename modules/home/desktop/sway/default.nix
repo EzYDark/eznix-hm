@@ -4,6 +4,8 @@
   pkgs,
   lib,
   namespace,
+  inputs,
+  system,
   ...
 }:
 with lib;
@@ -24,8 +26,16 @@ in {
 
     wayland.windowManager.sway = {
       enable = true;
+      package = inputs.nixpkgs-wayland.packages.${system}.sway-unwrapped;
       wrapperFeatures.gtk = true;
       systemd.variables = ["--all"];
+      extraSessionCommands = ''
+        export SDL_VIDEODRIVER=wayland
+        export WLR_RENDERER=vulkan
+      '';
+      extraOptions = [
+        "--unsupported-gpu"
+      ];
       catppuccin = {
         enable = true;
         flavor = "mocha";
@@ -86,15 +96,24 @@ in {
 
         output = {
           "eDP-1" = {
-            mode = "2160x1440@60.001Hz";
+            mode = "2160x1440@60Hz";
             scale = "1.5";
-            # allow_tearing = "yes";
+            position = "0 0";
+            allow_tearing = "yes";
             max_render_time = "off";
           };
           "HDMI-A-1" = {
-            mode = "1920x1080@120.000Hz";
+            mode = "1920x1080@120Hz";
             scale = "1";
-            # allow_tearing = "yes";
+            position = "1440 0";
+            allow_tearing = "yes";
+            max_render_time = "off";
+          };
+          "DP-2" = {
+            mode = "1920x1080@144Hz";
+            scale = "1";
+            position = "1440 0";
+            allow_tearing = "yes";
             max_render_time = "off";
           };
         };
@@ -107,6 +126,10 @@ in {
           {
             workspace = "2";
             output = "HDMI-A-1";
+          }
+          {
+            workspace = "2";
+            output = "DP-2";
           }
         ];
 
@@ -242,7 +265,7 @@ in {
           ];
         };
 
-        workspaceAutoBackAndForth = true;
+        workspaceAutoBackAndForth = false;
       };
 
       extraConfig =

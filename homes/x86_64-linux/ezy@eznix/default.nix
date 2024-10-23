@@ -61,11 +61,16 @@ with lib.${namespace}; {
   };
 
   home.sessionVariables = {
+    WLR_RENDERER = "vulkan";
     NIXOS_OZONE_WL = "1";
     EDITOR = "${lib.getExe pkgs.vscode-fhs}";
     BROWSER = "${lib.getExe pkgs.firefox-devedition}";
     # QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+  };
+
+  systemd.user.sessionVariables = {
+    WLR_RENDERER = "vulkan";
   };
 
   home.packages = with pkgs; [
@@ -78,6 +83,11 @@ with lib.${namespace}; {
     bluez
     pavucontrol
     ydotool
+    transmission_4-gtk
+    unar
+
+    lutris
+    heroic
   ];
 
 
